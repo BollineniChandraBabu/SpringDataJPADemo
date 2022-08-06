@@ -28,4 +28,29 @@ public class CurriculumServiceImpl implements CurriculumService {
     public List<Curriculum> getCurriculumByJPAList() {
         return curriculaJPA.findAll();
     }
+
+    @Override
+    public Curriculum insertCurriculum(Curriculum curriculum) {
+        return curriculaJPA.save(curriculum);
+    }
+
+    @Override
+    public Curriculum updateCurriculum(Curriculum curriculum) {
+        return curriculaJPA.save(curriculum);
+    }
+
+    @Override
+    public void deleteCurriculum(Curriculum curriculum) {
+        curriculaJPA.delete(curriculum);
+    }
+
+    @Override
+    public void deleteCurriculumById(Long id) {
+        curriculaJPA.deleteById(id);
+    }
+
+    @Override
+    public Curriculum getCurriculumById(Long id) {
+        return curriculaJPA.findById(id).orElse(null);
+    }
 }
